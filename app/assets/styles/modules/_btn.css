@@ -1,0 +1,21 @@
+
+.btn{
+    background-color: $mainBlue;
+    color: #fff;
+    text-decoration: none;/*izbriše podčrto pri povezavi*/
+    padding: 0.75rem 1.2rem;
+    display: inline-block;/*ker dajemo PADDING a el. moramo dodati inline-block, ki omogoča, da starš in oklepajoči elementi opazijo vertikalni padding*/
+    
+    &__orange{
+        background-color: $mainOrange;
+    }
+    
+    &__large{
+        /*font-size: 1.25rem; 0.25% večje od normalnega*/
+        padding: 1.1rem 1.9rem;
+
+        @mixin atSmall{
+            font-size: 1.25rem;
+        }
+    }
+}

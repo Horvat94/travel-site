@@ -1,0 +1,27 @@
+.wrapper{
+	overflow: hidden;/*vsekaj gre čez rob se skrije, tako preprečimo drsnik levo in desno...*/
+	padding-left: 18px;
+	padding-right: 18px;
+	max-width: 1236px;/*ko smo globalno uporabili box-sizing:border-box. smo zmanjšali max-width tega wrraperja za (padding :18px+18px = 36px) 36px zato iz 1200 na 1236px*/
+	margin-left: auto;
+	margin-right: auto;
+
+	&--medium{
+		max-width: 976px;/*max sirina slike*/
+	}
+
+	.wrapper{/*ko je wrpper gnezden v wrapper ne bo imel dodatnega padinga*/
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	&--b-margin{/*wrraper margin bottom (b)*/
+
+		margin-bottom: 1rem;
+
+		@mixin atSmall{
+			margin-bottom: 3.875rem;
+		}
+	}
+
+}

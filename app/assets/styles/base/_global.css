@@ -1,0 +1,17 @@
+
+img{
+	max-width: 100%;
+	height: auto;
+}
+body{
+	font-family: 'Roboto', sans-serif;
+	color: #333;
+}
+
+a{/*privzeto so vse povezave oranžne*/
+	color: $mainOrange;
+}
+
+*{
+	box-sizing: border-box; /*ignorira layouts sirino(width v layouts) in ne peišteje px k % */
+}

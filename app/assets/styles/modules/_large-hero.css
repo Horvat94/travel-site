@@ -1,0 +1,62 @@
+.large-hero{
+	position: relative;
+	border-bottom: 10px solid $mainBlue;
+	
+	&__image{
+		display: block;
+	}
+
+	&__text-content{
+		position: absolute;
+		transform: translateY(-50%);
+		top:50%;
+		left:0;
+		width:100%;
+		text-align: center;
+	}
+	
+	&__title{
+        margin: 0;
+		font-weight: 300;
+		color: $mainBlue;
+		/*font-size: 4.8rem;*/
+		font-size: 2.4rem;/*nastavimo velikost za manjše ekrane in modificiramo naprej za večje zaslone*/
+		/*@media (min-width:530px){media query cilja manjše zaslone... / če je zaslon večji od 530px
+			font-size: 4.8rem;
+		}*/
+		@mixin atSmall{
+			font-size: 4.8rem;
+		}
+		/*@mixin atMedium{
+			font-size: 3.2rem;
+		}
+		@mixin atLarge{
+			font-size: 4.8rem;
+		}*/
+	}
+	
+	&__subtitle{
+        margin: 0;
+		font-weight:300;
+		color: $mainBlue;
+		font-size: 1.5rem;/*brskalnik vzame velikos, ki je od html elementa in jo pomnoži z 1.5 // to je osnovna velikost oz. base size*/
+		/*@mixin atSmall{
+			font-size: 2.9rem;
+		}*/
+	}
+
+    &__description{
+        color: #fff;
+        font-size: 1.1rem;
+        font-weight: 100;
+        max-width: 30rem;
+        text-shadow: 2px 2px 0 rgba(0,0,0,0.1);/* 2px-offset 0-blur barva*/
+        margin: 0 auto;
+
+        @mixin atSmall{
+			font-size: 1.875rem;
+		}
+    }
+}
+
+

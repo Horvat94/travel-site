@@ -1,0 +1,47 @@
+.row{
+
+		@mixin clearfix;/*počistimo floate */
+
+	&--gutters > div{
+			padding-right: 65px;
+	}
+
+	&--gutters{/*razmik med dvema columna*/
+		margin-right: -65px;/*ponovimo z marginom da skrijemo padding*/
+		overflow: hidden;/*skrije vse kar gre čez rob*/
+	}
+
+&__b-margin-until-medium{/*dokler je pod medium je 1rem*/
+	margin-bottom: 1rem;
+}
+
+	@mixin atMedium{/*nastavitve uporabimo za velike zaslone oz. srednje ostalo je za majhne zaslone, ker se razporedijo en na drugega..*/
+
+		&__medium-4{
+			float: left;
+			width: 33.33%;
+		}
+
+		&__medium-8{
+			float: left;
+			width: 66.66%;
+		}
+
+		&__b-margin-until-medium{
+			margin-bottom: 0;
+		}	
+
+		&__medium-4--larger{
+			width: 37%;/*povečamo iz 33.33%*/
+		}
+
+		&__medium-8--smaller{
+			width: 63%;/*zmanjšamo iz 66.66%*/
+		}
+
+	}
+
+
+
+
+}

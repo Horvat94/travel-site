@@ -1,0 +1,25 @@
+@define-mixin atSmall{/*(atSmall je ime našega mixina)zasloni večji od tega kaj pravimo smartphone size*/
+	@media (min-width: 530px){/*če je zaslon večji od 530px// */
+		@mixin-content;/*za vsebino, ki jo definiramo v css datotekah*/
+	}
+}
+
+@define-mixin atMedium{
+	@media (min-width: 800px){
+		@mixin-content;
+	}
+}
+
+@define-mixin atLarge{
+	@media (min-width: 1200px){
+		@mixin-content;
+	}
+}
+
+@define-mixin clearfix{
+	&::after{
+		content: "";/*vstavi prazno vsebino*/
+		clear: both;/*počisti vse floate*/
+		display: table;/*za podporo brskalniku*/
+	}
+}
