@@ -692,13 +692,21 @@ a{/*privzeto so vse povezave oranžne*/
 
 /*počistimo floate */
 
-.row--gutters > div{
-			padding-right: 65px;
-	}
-
 .row--gutters{/*razmik med dvema columna*/
 		margin-right: -65px;/*ponovimo z marginom da skrijemo padding*/
 		overflow: hidden;/*skrije vse kar gre čez rob*/
+	}
+
+.row--gutters-large{
+		margin-right: -100px;
+	}
+
+.row--gutters > div{
+		padding-right: 65px;
+	}
+
+.row--gutters-large > div{
+		padding-right: 100px;
 	}
 
 .row__b-margin-until-medium{/*dokler je pod medium je 1rem*/
@@ -717,6 +725,11 @@ a{/*privzeto so vse povezave oranžne*/
 		.row__medium-4{
 			float: left;
 			width: 33.33%;
+		}
+
+		.row__medium-6{
+			float:left;
+			width:50%;
 		}
 
 		.row__medium-8{
@@ -738,8 +751,9 @@ a{/*privzeto so vse povezave oranžne*/
 	}
 
 .generic-content-container p{
+		font-weight: 300;
 		line-height: 1.65;/*prostor med vrsticami ne potrebujemo enote za merilom*/
-		margin: 1.8rem 0;
+		margin: 0 0 1.8rem 0;/*top right bottom left proti urinem kazalcu*/
 	}
 
 /*(atSmall je ime našega mixina)zasloni večji od tega kaj pravimo smartphone size*/
@@ -747,12 +761,94 @@ a{/*privzeto so vse povezave oranžne*/
 @media (min-width: 530px){
 
 .generic-content-container{/*če je zaslon večji od 530px// */
-				font-size: 1.125rem/*za vsebino, ki jo definiramo v css datotekah*/
+		font-size: 1.125rem/*za vsebino, ki jo definiramo v css datotekah*/
 }
 	}
 
 .generic-content-container p a{
 		font-weight: 700;/*400 - normalno extra bold - 700*/
+	}
 
+.section-title{
+	font-size: 2.55rem;/*velikost za telefone*/
+	font-weight: 300;
+	text-align: center;
+}
+
+/*(atSmall je ime našega mixina)zasloni večji od tega kaj pravimo smartphone size*/
+
+@media (min-width: 530px){
+
+.section-title{/*če je zaslon večji od 530px// */
+		font-size: 3.75rem/*velikost za večje zaslone od telefona*//*za vsebino, ki jo definiramo v css datotekah*/
+}
+	}
+
+.section-title strong{
+		font-weight: 500;
+	}
+
+.section-title__icon{/*zvezdica*/
+		display: block;/*pade tekst v novo vrstico*/
+		margin-left: auto;/*postane horizontalno poravnan*/
+		margin-right: auto;
+		margin-bottom: .6rem; /*malo prostora med zvezdo in naslovom, ki ga spodaj razveljavimo*/
+	}
+
+/*(atSmall je ime našega mixina)zasloni večji od tega kaj pravimo smartphone size*/
+
+@media (min-width: 530px){
+
+.section-title__icon{/*če je zaslon večji od 530px// */
+					margin-right: .5rem;
+					margin-left: 0;/*popravimo margin, ki je bil za majhne zaslone*/
+					margin-bottom: 0; /*razveljavimo za večje zaslone*/
+					display: inline-block/*da ne pade tekst pri večjih zasloni v novo vrstico*//*za vsebino, ki jo definiramo v css datotekah*/
+	}
+	}
+
+.feature-item{
+	position: relative;
+	padding-bottom: 2.5rem;
+}
+
+/*(atSmall je ime našega mixina)zasloni večji od tega kaj pravimo smartphone size*/
+
+@media (min-width: 530px){
+
+.feature-item{/*če je zaslon večji od 530px// */
+		padding-left: 94px/*za vsebino, ki jo definiramo v css datotekah*/
+}
+	}
+
+.feature-item__icon{
+		display: block;/*tekst pade pod sliko*/
+		margin: 0 auto;
+	}
+
+/*poravna v sredino*/
+
+.feature-item__icon mixin atSmall{
+		position: absolute;
+		left: 0;
+		}
+
+.feature-item__title{
+		font-size: 1.6rem;
+		font-weight: 300;
+		margin-top: .7em;/*margin nad tekstom*/
+		margin-bottom: .8rem;
+		text-align: center; /*v sredino na majhnh zaslonih*/
+	}
+
+/*(atSmall je ime našega mixina)zasloni večji od tega kaj pravimo smartphone size*/
+
+@media (min-width: 530px){
+
+.feature-item__title{/*če je zaslon večji od 530px// */
+			font-size: 1.875rem;
+			margin-top: 1em;
+			text-align: left/*za vsebino, ki jo definiramo v css datotekah*/
+	}
 	}
 

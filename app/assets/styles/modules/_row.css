@@ -2,14 +2,25 @@
 
 		@mixin clearfix;/*počistimo floate */
 
-	&--gutters > div{
-			padding-right: 65px;
-	}
 
 	&--gutters{/*razmik med dvema columna*/
 		margin-right: -65px;/*ponovimo z marginom da skrijemo padding*/
 		overflow: hidden;/*skrije vse kar gre čez rob*/
 	}
+
+	&--gutters-large{
+		margin-right: -100px;
+	}
+	
+	&--gutters > div{
+		padding-right: 65px;
+	}
+
+	&--gutters-large > div{
+		padding-right: 100px;
+	}
+
+
 
 &__b-margin-until-medium{/*dokler je pod medium je 1rem*/
 	margin-bottom: 1rem;
@@ -20,6 +31,11 @@
 		&__medium-4{
 			float: left;
 			width: 33.33%;
+		}
+
+		&__medium-6{
+			float:left;
+			width:50%;
 		}
 
 		&__medium-8{

@@ -1,0 +1,33 @@
+.feature-item{
+	position: relative;
+	padding-bottom: 2.5rem;
+
+@mixin atSmall{
+		padding-left: 94px;
+
+}
+
+	&__icon{
+		display: block;/*tekst pade pod sliko*/
+		margin: 0 auto;/*poravna v sredino*/
+
+		mixin atSmall{
+		position: absolute;
+		left: 0;
+		}
+	}
+
+	&__title{
+		font-size: 1.6rem;
+		font-weight: 300;
+		margin-top: .7em;/*margin nad tekstom*/
+		margin-bottom: .8rem;
+		text-align: center; /*v sredino na majhnh zaslonih*/
+
+		@mixin atSmall{
+			font-size: 1.875rem;
+			margin-top: 1em;
+			text-align: left;
+		}
+	}
+}

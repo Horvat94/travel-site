@@ -1,0 +1,27 @@
+.section-title{
+	font-size: 2.55rem;/*velikost za telefone*/
+	font-weight: 300;
+	text-align: center;
+
+	@mixin atSmall{
+		font-size: 3.75rem;/*velikost za večje zaslone od telefona*/
+	}
+
+	strong{
+		font-weight: 500;
+	}
+
+	&__icon{/*zvezdica*/
+		display: block;/*pade tekst v novo vrstico*/
+		margin-left: auto;/*postane horizontalno poravnan*/
+		margin-right: auto;
+		margin-bottom: .6rem; /*malo prostora med zvezdo in naslovom, ki ga spodaj razveljavimo*/
+
+		@mixin atSmall{
+					margin-right: .5rem;
+					margin-left: 0;/*popravimo margin, ki je bil za majhne zaslone*/
+					margin-bottom: 0; /*razveljavimo za večje zaslone*/
+					display: inline-block;/*da ne pade tekst pri večjih zasloni v novo vrstico*/
+		}
+	}
+}
