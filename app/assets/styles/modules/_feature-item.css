@@ -11,7 +11,7 @@
 		display: block;/*tekst pade pod sliko*/
 		margin: 0 auto;/*poravna v sredino*/
 
-		mixin atSmall{
+		@mixin atSmall{
 		position: absolute;
 		left: 0;
 		}

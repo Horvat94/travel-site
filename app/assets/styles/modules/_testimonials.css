@@ -1,0 +1,42 @@
+.testimonial{
+	background-color: rgba(255,255,255,0.8);
+	padding: 0 18px 1px 18px; /*notranji robovi za tekst .. 1px za bottom padding je zato ker ima tekst bottom margin, in če nima naslona gre margin v prazno, če pa mu damo padding pa se razširi*/
+	margin-bottom: 98px; /*80px razmika med blokoma in +18px za lepši razmik*/
+	&__photo{
+		width: 160px;/*div višino in širino prilagodimo velikosti slike*/
+		height: 160px;
+		border-radius: 80px;/*80px je polovica velikosti slike, da je krog*/
+		overflow: hidden;/*skrije vse kaj gre čez rob div-a da dobimo okroglo obliko, ker drugače ni videt efekta*/
+		margin: 0 auto -80px auto;/*centriramo sliko - bottom je zato -80px , ker smo spodaj uporabili position relative in -80px , da bodo drugi elementi zaznali spremembo moramo še dodati -80px bottom margin-a*/
+		position: relative;/*če je relativno, drugi elementi okrog se ne zavedajo da je ta slika oddaljena -80px*/
+		top: -80px;
+		border: 6px solid rgba(255,255,255,0.8);
+	}
+
+	&__title{
+		color: $mainBlue;
+		text-align: center;
+		font-size: 1.5rem;
+		font-weight: 500;
+		margin: 0;
+	}
+
+	&__subtitle{
+		color: $mainOrange;
+		text-align: center;
+		font-weight: 400;
+		font-size: 0.9375rem;
+		margin: .25rem 0 1rem 0;
+	}
+
+	@mixin atLarge{
+			margin-bottom: 0; /*izničimo margin-bottom, ki je uporabljen za majhne zaslone*/
+			padding: 0 1.8125rem 1px 1.8125rem; /*notranji robovi za tekst .. 1px za bottom padding je zato ker ima tekst bottom margin, in če nima naslona gre margin v prazno, če pa mu damo padding pa se razširi*/
+
+	}
+	&--last{
+		margin-bottom: 0;
+	}
+
+
+}

@@ -1,12 +1,39 @@
 .page-section{
 	padding: 1.2rem 0;
-	@mixin atMedium{
+
+	@mixin atLarge{
 		padding: 4.5rem 0;
 	}
 
 	&--blue{
 		background-color: $mainBlue;
 		color: #fff;
+	}
+
+	&--testimonials{
+		background-color: #e0e6ef;
+
+			@mixin atLarge{
+				background: url("/assets/images/testimonials-bg.jpg") top center no-repeat;/* aligned top in horizontalno poravnana center ne sme se ponavljati, samo enkrat se naj prikaže*/
+				background-size: cover;/*pokrije celoten div*/
+			}
+	}
+
+
+
+	&--no-b-padding-until-medium{
+		padding-bottom: 0;/*za telefone  spodnji odmik izbrišemo za celoten odsek*/
+
+		@mixin atMedium{
+			padding-bottom: 4.5rem;/*originalni padding za spodnji odmik v celotnem odseku*/
+		}
+	}
+	&--no-b-padding-until-large{
+		padding-bottom: 0;/*za telefone  spodnji odmik izbrišemo za celoten odsek*/
+
+		@mixin atLarge{
+			padding-bottom: 4.5rem;/*originalni padding za spodnji odmik v celotnem odseku*/
+		}
 	}
 
 }

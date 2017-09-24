@@ -18,10 +18,16 @@
 		margin-bottom: .6rem; /*malo prostora med zvezdo in naslovom, ki ga spodaj razveljavimo*/
 
 		@mixin atSmall{
-					margin-right: .5rem;
-					margin-left: 0;/*popravimo margin, ki je bil za majhne zaslone*/
-					margin-bottom: 0; /*razveljavimo za večje zaslone*/
-					display: inline-block;/*da ne pade tekst pri večjih zasloni v novo vrstico*/
+			position: relative;/*za poravnavanje ikone dol*/
+			top: 8px;/*potisne ikono dol za 8px*/
+			margin-right: .5rem;
+			margin-left: 0;/*popravimo margin, ki je bil za majhne zaslone*/
+			margin-bottom: 0; /*razveljavimo za večje zaslone*/
+			display: inline-block;/*da ne pade tekst pri večjih zasloni v novo vrstico*/
 		}
+	}
+
+	&--blue{
+		color: $mainBlue;
 	}
 }
