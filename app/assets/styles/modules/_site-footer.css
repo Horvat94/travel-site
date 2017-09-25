@@ -8,6 +8,7 @@
 		display: block;
 		margin-bottom: 1rem;
 		font-weight: 200;
+		
 		@mixin atMedium{
 			display: inline-block;
 			margin-right: 1.4rem;

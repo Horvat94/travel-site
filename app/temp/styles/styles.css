@@ -479,6 +479,7 @@ a{/*privzeto so vse povezave oranžne*/
 	}
 
 .large-hero__text-content{
+		padding-top: 88px;
 		position: absolute;
 		-webkit-transform: translateY(-50%);
 		        transform: translateY(-50%);
@@ -486,6 +487,13 @@ a{/*privzeto so vse povezave oranžne*/
 		left:0;
 		width:100%;
 		text-align: center;
+	}
+
+@media (min-width: 800px){
+
+.large-hero__text-content{
+			padding-top: 60px
+	}
 	}
 
 .large-hero__title{
@@ -1151,4 +1159,108 @@ a{/*privzeto so vse povezave oranžne*/
 			display: inline-block;
 			margin-right: 1.4rem
 	}
+	}
+
+.site-header{
+	position: absolute;/*prestavimo element*/
+	z-index: 2;/*postavi header sloj višje*/
+	width: 100%;
+	padding: 10px 0;
+
+}
+
+@media (min-width: 800px){
+
+.site-header{
+		background-color: rgba(47,85,114,0.3)
+
+}
+	}
+
+.site-header__btn-container{
+	float: right;/*floatamo gumb desno*/
+
+	}
+
+.site-header__logo{
+		position: absolute;/*logo odstopi iz ravnovesja*/
+		background-color: #2f5572;
+		padding: 25px 36px;/*oblika loga*/
+		top: 0;/*logo je 10 px dol zato ga postavimo na 0*/
+		left: 50%;
+		-webkit-transform: translateX(-50%) scale(0.8);
+		        transform: translateX(-50%) scale(0.8);/*translate se za polovico premakne nazaj...ker uporabljamo css background moramo scalirati*/
+		-webkit-transform-origin: 50% 0;
+		        transform-origin: 50% 0;
+	}
+
+/*center dokumenta premakne na zgornji rob*/
+
+@media (min-width: 800px){
+
+.site-header__logo{
+			left: 0;
+			-webkit-transform: translateX(50%);
+			        transform: translateX(50%)
+	}
+	}
+
+.site-header__menu-icon{
+		width: 20px;
+		height: 20px;
+		background-color: #fff;
+		position: absolute;
+		top: 10px;
+		right: 10px;
+	}
+
+@media (min-width: 800px){
+
+.site-header__menu-icon{
+			display: none
+	}
+	}
+
+.site-header__logo__graphic{
+		text-indent: -9999px; /*skrije text brez da skrije sam element*/
+	}
+
+.site-header__menu-content{
+		display: none;
+	}
+
+@media (min-width: 800px){
+
+.site-header__menu-content{
+			display: block
+	}
+	}
+
+.primary-nav--pull-right{
+		float: right;
+	}
+
+.primary-nav ul{
+		margin:0;
+		padding:0;
+	}
+
+.primary-nav ul::after{
+		content: "";/*vstavi prazno vsebino*/
+		clear: both;/*počisti vse floate*/
+		display: table;/*za podporo brskalniku*/
+	}
+
+.primary-nav li{
+		list-style-type: none;
+		float: left;
+		padding-right: 20px;
+	}
+
+.primary-nav a{
+		text-decoration: none;
+		font-weight: 300;
+		color: #fff;
+		display: block;
+		padding: 12px 0;
 	}
