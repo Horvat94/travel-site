@@ -3,13 +3,21 @@
 	z-index: 2;/*postavi header sloj višje*/
 	width: 100%;
 	padding: 10px 0;
+	transition: background-color .3s ease-out;/*po privzetem je linearno mi bomo dali ease-out*/
+
+	&--is-expanded{
+		background-color: rgba($mainBlue, .55);
+	}
 
 	@mixin atMedium{
 		background-color: rgba(47,85,114,0.3);
 	}
 
 	&__btn-container{
-	float: right;/*floatamo gumb desno*/
+
+		@mixin atMedium{
+				float: right;/*floatamo gumb desno*/
+		}
 
 	}
 
@@ -29,14 +37,83 @@
 
 	&__menu-icon{
 		width: 20px;
-		height: 20px;
-		background-color: #fff;
+		height: 19px;
 		position: absolute;
 		top: 10px;
+		z-index: 10;/*drugače ga ne moremo klikniti, da bi spet izginil*/
 		right: 10px;
+
 
 		@mixin atMedium{
 			display: none;
+		}
+
+		/*&__top{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 20px;
+			height: 3px;
+			background-color: #fff;
+
+		}*/
+		&::before{/*pseudo trik :D za samo en div*/
+			content: "";/*da se vsebina pojavi*/
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 20px;
+			height: 3px;
+			background-color: #fff;
+			transform-origin:  0 0;/*če hočemo da je zgornji levi kot transformni origin samo rečemo 0 0*/
+			/*transform-origin:  50% 50%;horizontalni center elementa in vertikalni center elementa*/
+			transition: transform .3s ease-out;
+		}
+		&__middle{
+			position: absolute;
+			top: 8px;
+			left: 0;
+			width: 20px;
+			height: 3px;
+			background-color: #fff;
+			transition: all .3s ease-out;
+			transform-origin: 0 50%;
+		}
+		&::after{
+			content: "";/*da se vsebina pojavi*/
+			position: absolute;
+			bottom: 0px;
+			left: 0;
+			width: 20px;
+			height: 3px;
+			background-color: #fff;
+			transform-origin: 0 100%;
+			transition: transform .3s ease-out;
+
+		}
+	/*	&__bottom{
+			position: absolute;
+			bottom: 0px;
+			left: 0;
+			width: 20px;
+			height: 3px;
+			background-color: #fff;
+		}*/
+	}
+
+	&__menu-icon--close-x{
+		&::before{
+			transform: rotate(45deg)  scaleX(1.25);/*rotiramo zgornji div za 45 stopinj v urinem kazalcu*/
+		}
+
+		.site-header__menu-icon__middle{
+			opacity: 0;
+			transform: scaleX(0);
+		}
+
+		&::after{
+			transform: rotate(-45deg)  scaleX(1.25) translateY(1px);/*rotiramo zgornji div za 45 stopinj v urinem kazalcu in po y osi premaknemo za 1px*/
+
 		}
 	}
 
@@ -45,12 +122,33 @@
 	}
 
 	&__menu-content{
-		display: none;
+		/*display: none; zamenjamo z opacity 0 hočemo animirati pisavo v meniju*/
+		opacity: 0;
+		transform: scale(1.2);/*zoom effect*/
+		transition: all .3s ease-out;/*all - vpliva na vse elemente*/
+		position: relative;/*ker drugače brskalnik ne bo zaznal z-index*/
+		z-index: -10;/*skrijemo nevideno vsebino v zadnji sloj, da uporabnik po pomoti ne klikne na meni*/
+		padding-top: 90px;
+		text-align: center;
+		
 
 		@mixin atMedium{
+			padding-top: 100px;
+			opacity: 1;
+			z-index: 1;/*za večje zaslone te nastavitve ne veljajo*/
 			display: block;
+			padding-top: 0;
+			transform: scale(1);
+		}
+
+		&--is-visible{
+			/*display: block;*/
+			opacity: 1;/*ko je spet viden ga damo na 1*/
+			z-index: 1;
+			transform: scale(1);/*nazaj v normalno velikost*/
 		}
 	}
+
 
 }
 
