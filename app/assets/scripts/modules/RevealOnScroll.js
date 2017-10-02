@@ -12,7 +12,7 @@ class RevealOnScroll{
 		this.itemsToReveal.addClass("reveal-item");
 	}
 	createWaypoints(){
-		var that = this;
+		var that = this;//this kaže na objekt k ga hočemo
 		this.itemsToReveal.each(function(){//vse kaj dodamo v each se bo za vsak element zagnalo
 			var currentItem = this;//this kaže na objekt, ki ga hočemo razkrit, ker bo spodaj prevzel new Waypoint na katerega bo kazal this, shranimo tukaj v spremenljivko
 			new Waypoint({//do waypoint razreda imamo dostop ker smo dodali waypoint datoteko, potrebuje dve spremenljivki

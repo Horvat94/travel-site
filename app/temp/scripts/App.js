@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -10325,205 +10325,6 @@ return jQuery;
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _MobileMenu = __webpack_require__(2);
-
-var _MobileMenu2 = _interopRequireDefault(_MobileMenu);
-
-var _RevealOnScroll = __webpack_require__(3);
-
-var _RevealOnScroll2 = _interopRequireDefault(_RevealOnScroll);
-
-var _jquery = __webpack_require__(0);
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-///MobileMen je dejansko poljubno ime tukaj smo organizirani 
-var mobileMenu = new _MobileMenu2.default();
-//var revealOnScroll = new RevealOnScroll();
-/*function oseba(oIme, oBarva, oStatus){
-	console.log("Zdravo, moje ime je "+oIme+". Moja najljubša barva je "+oBarva+". Trenutno sem "+oStatus+".");
-}
-
-var tadej = {//objekt v javascript
-	ime: "Horvat Tadej",// ime je noun
-	barva: "blue",
-	status: "ziv"
-
-	greet: function(){ // verbe je akcija oz obnašanje ali behaviour (metoda)
-		console.log("Zdravo, moje ime je "+oIme+". Moja najljubša barva je "+oBarva+". Trenutno sem "+oStatus+".");
-	}
-}
-
-tadej.greet();//klicanje metode je enako kot klicanje vrednosti v objektu
-*/
-
-//oseba(tadej.ime,tadej.barva,tadej.status);//uporaba parametrov objekta v funkciji
-
-/*Reusable blueprin ali konstruktor - najlepši oz. strukturiran način*/
-
-//var Oseba = require("./modules/Oseba");//ni potrebno dodati .js
-
-/*import Oseba from "./modules/Oseba"; // nova sintaksa za vstavljanje modula ES6
-
-class Adult extends Oseba{//dedujemo vse iz osebe 
-	payTaxes(){
-		console.log(this.oIme + " now owes 0€ in taxes");
-	}
-}
-
-
-var john = new Oseba("Tadej", "Modra", "Ziv");
-
-john.greet(); // kličemo metodo objekta
-
-
-var jane = new Adult("Nastja", "Red", "Ziva");//naredimo now objekt z instanciranjem razreda Adult
-
-jane.greet();
-jane.payTaxes();
-
-*/
-
-/** Koda za spletno stran **/
-new _RevealOnScroll2.default((0, _jquery2.default)(".feature-item"), "85%"); //features
-new _RevealOnScroll2.default((0, _jquery2.default)(".testimonial"), "60%"); //testimonials npr. podamo argumente katere razrede bomo razkrili in kaksen offset bomo uporabili
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _jquery = __webpack_require__(0);
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var MobileMenu = function () {
-	function MobileMenu() {
-		_classCallCheck(this, MobileMenu);
-
-		/*	$(".site-header__menu-icon").click(function(){
-  		alert("click");
-  	});*/ // neprijeten način
-		/*boljši način*/
-		this.siteHeader = (0, _jquery2.default)(".site-header");
-		this.menuIcon = (0, _jquery2.default)(".site-header__menu-icon");
-		this.menuContent = (0, _jquery2.default)(".site-header__menu-content");
-		this.events(); // 2.zato jo moramo klicat, ko se objekt ustvari
-	}
-
-	_createClass(MobileMenu, [{
-		key: "events",
-		value: function events() {
-			//1.če hočemo da brskalnik zazna to metodo jomoramo ročno klicati
-			this.menuIcon.click(this.toggleTheMenu.bind(this)); //kliče spodnjo metodo
-
-			//this.menuIcon.click(this.toggleTheMenu);//NAPAKA! (zaradi this) tukaj se pa this sklicuje na MobileMenu, ker ga direktno kličemo mi v construktor-ju
-			//rešimo z funkcijo bind(this) - bind() vse kar vnesemo vbind(sem) npr. "MobileMenu"
-			//bo naslednji this prevzel
-		}
-	}, {
-		key: "toggleTheMenu",
-		value: function toggleTheMenu() {
-			this.menuContent.toggleClass("site-header__menu-content--is-visible"); //toglamo css razred v element označen
-			//this.menuContent.toggleClass("site-header__menu-content--is-visible"); // NAPAKA! (zaradi this, ker toggleClass ne more pravilno dostopati do menuContent) this vedno kaže na el. ki ga kliče tukaj v tem primeru
-			// z (.site-header__menu-icon el. ztemrazredom), ker ga kliče menuIcon.click!
-			//this se spreminja odvisno kjein kdaj ga uporabljamo
-			//REŠITEV ko smo uporabili bind bo this postal vrednost bind-a npr. "MobileMenu"
-			this.siteHeader.toggleClass("site-header--is-expanded");
-			this.menuIcon.toggleClass("site-header__menu-icon--close-x"); //pojavi se x ko kliknemo na tri crtice
-		}
-	}]);
-
-	return MobileMenu;
-}();
-
-exports.default = MobileMenu;
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _jquery = __webpack_require__(0);
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-var _noframework = __webpack_require__(4);
-
-var _noframework2 = _interopRequireDefault(_noframework);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var RevealOnScroll = function () {
-	function RevealOnScroll(elementi, offset) {
-		_classCallCheck(this, RevealOnScroll);
-
-		this.itemsToReveal = (0, _jquery2.default)(elementi); //vrstni red je pomemben
-		this.offsetPercentage = offset; //si izmislimo incoming offset parameter
-		this.hideInitially();
-		this.createWaypoints();
-	}
-
-	_createClass(RevealOnScroll, [{
-		key: "hideInitially",
-		value: function hideInitially() {
-			this.itemsToReveal.addClass("reveal-item");
-		}
-	}, {
-		key: "createWaypoints",
-		value: function createWaypoints() {
-			var that = this;
-			this.itemsToReveal.each(function () {
-				//vse kaj dodamo v each se bo za vsak element zagnalo
-				var currentItem = this; //this kaže na objekt, ki ga hočemo razkrit, ker bo spodaj prevzel new Waypoint na katerega bo kazal this, shranimo tukaj v spremenljivko
-				new Waypoint({ //do waypoint razreda imamo dostop ker smo dodali waypoint datoteko, potrebuje dve spremenljivki
-					element: currentItem, //dom el. ki ga opazujemo dokler skrolamo dol (el. ki se bo recimo odkril)
-					handler: function handler() {
-						//kaj se zgodi ko priskolamo do opazovanega elementa
-						(0, _jquery2.default)(currentItem).addClass("reveal-item--is-visible"); // ko priskolamo do elementa, mu dodamo razred da bo spet viden
-					}, //ko skrolamo do sem
-					offset: that.offsetPercentage //0 je vrh našega vidnega zaslona 100% pa spodnji del
-				});
-			});
-		}
-	}]);
-
-	return RevealOnScroll;
-}();
-
-exports.default = RevealOnScroll;
-
-/***/ }),
-/* 4 */
 /***/ (function(module, exports) {
 
 /*!
@@ -11284,6 +11085,267 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
   Waypoint.Adapter = NoFrameworkAdapter
 }())
 ;
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _StickyHeader = __webpack_require__(3);
+
+var _StickyHeader2 = _interopRequireDefault(_StickyHeader);
+
+var _MobileMenu = __webpack_require__(4);
+
+var _MobileMenu2 = _interopRequireDefault(_MobileMenu);
+
+var _RevealOnScroll = __webpack_require__(5);
+
+var _RevealOnScroll2 = _interopRequireDefault(_RevealOnScroll);
+
+var _jquery = __webpack_require__(0);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+///MobileMen je dejansko poljubno ime tukaj smo organizirani 
+/*function oseba(oIme, oBarva, oStatus){
+	console.log("Zdravo, moje ime je "+oIme+". Moja najljubša barva je "+oBarva+". Trenutno sem "+oStatus+".");
+}
+
+var tadej = {//objekt v javascript
+	ime: "Horvat Tadej",// ime je noun
+	barva: "blue",
+	status: "ziv"
+
+	greet: function(){ // verbe je akcija oz obnašanje ali behaviour (metoda)
+		console.log("Zdravo, moje ime je "+oIme+". Moja najljubša barva je "+oBarva+". Trenutno sem "+oStatus+".");
+	}
+}
+
+tadej.greet();//klicanje metode je enako kot klicanje vrednosti v objektu
+*/
+
+//oseba(tadej.ime,tadej.barva,tadej.status);//uporaba parametrov objekta v funkciji
+
+/*Reusable blueprin ali konstruktor - najlepši oz. strukturiran način*/
+
+//var Oseba = require("./modules/Oseba");//ni potrebno dodati .js
+
+/*import Oseba from "./modules/Oseba"; // nova sintaksa za vstavljanje modula ES6
+
+class Adult extends Oseba{//dedujemo vse iz osebe 
+	payTaxes(){
+		console.log(this.oIme + " now owes 0€ in taxes");
+	}
+}
+
+
+var john = new Oseba("Tadej", "Modra", "Ziv");
+
+john.greet(); // kličemo metodo objekta
+
+
+var jane = new Adult("Nastja", "Red", "Ziva");//naredimo now objekt z instanciranjem razreda Adult
+
+jane.greet();
+jane.payTaxes();
+
+*/
+
+/** Koda za spletno stran **/
+var mobileMenu = new _MobileMenu2.default();
+var stickyHeader = new _StickyHeader2.default();
+//var revealOnScroll = new RevealOnScroll();
+new _RevealOnScroll2.default((0, _jquery2.default)(".feature-item"), "85%"); //features
+new _RevealOnScroll2.default((0, _jquery2.default)(".testimonial"), "60%"); //testimonials npr. podamo argumente katere razrede bomo razkrili in kaksen offset bomo uporabili
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _jquery = __webpack_require__(0);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+var _noframework = __webpack_require__(1);
+
+var _noframework2 = _interopRequireDefault(_noframework);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var StickyHeader = function () {
+	function StickyHeader() {
+		_classCallCheck(this, StickyHeader);
+
+		this.siteHeader = (0, _jquery2.default)(".site-header");
+		this.headerTriggerElement = (0, _jquery2.default)(".large-hero__title"); //označimo naslov
+		this.createHeaderWaypoint(); //ko se ustvari konstruktor se izvede ta funkcija in ustvari waypoint
+	}
+
+	_createClass(StickyHeader, [{
+		key: "createHeaderWaypoint",
+		value: function createHeaderWaypoint() {
+			var that = this; //shranimo pot do glavnega razreda
+			new Waypoint({
+				element: this.headerTriggerElement[0], //pričakuje javascript DOM element..prvi element v objektu kot polje je kazalec
+				handler: function handler(direction) {
+					//
+					if (direction == "down") {
+						that.siteHeader.addClass("site-header--dark");
+					} else {
+						that.siteHeader.removeClass("site-header--dark");
+					}
+				}
+			});
+		}
+	}]);
+
+	return StickyHeader;
+}();
+
+exports.default = StickyHeader;
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _jquery = __webpack_require__(0);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var MobileMenu = function () {
+	function MobileMenu() {
+		_classCallCheck(this, MobileMenu);
+
+		/*	$(".site-header__menu-icon").click(function(){
+  		alert("click");
+  	});*/ // neprijeten način
+		/*boljši način*/
+		this.siteHeader = (0, _jquery2.default)(".site-header");
+		this.menuIcon = (0, _jquery2.default)(".site-header__menu-icon");
+		this.menuContent = (0, _jquery2.default)(".site-header__menu-content");
+		this.events(); // 2.zato jo moramo klicat, ko se objekt ustvari
+	}
+
+	_createClass(MobileMenu, [{
+		key: "events",
+		value: function events() {
+			//1.če hočemo da brskalnik zazna to metodo jomoramo ročno klicati
+			this.menuIcon.click(this.toggleTheMenu.bind(this)); //kliče spodnjo metodo
+
+			//this.menuIcon.click(this.toggleTheMenu);//NAPAKA! (zaradi this) tukaj se pa this sklicuje na MobileMenu, ker ga direktno kličemo mi v construktor-ju
+			//rešimo z funkcijo bind(this) - bind() vse kar vnesemo vbind(sem) npr. "MobileMenu"
+			//bo naslednji this prevzel
+		}
+	}, {
+		key: "toggleTheMenu",
+		value: function toggleTheMenu() {
+			this.menuContent.toggleClass("site-header__menu-content--is-visible"); //toglamo css razred v element označen
+			//this.menuContent.toggleClass("site-header__menu-content--is-visible"); // NAPAKA! (zaradi this, ker toggleClass ne more pravilno dostopati do menuContent) this vedno kaže na el. ki ga kliče tukaj v tem primeru
+			// z (.site-header__menu-icon el. ztemrazredom), ker ga kliče menuIcon.click!
+			//this se spreminja odvisno kjein kdaj ga uporabljamo
+			//REŠITEV ko smo uporabili bind bo this postal vrednost bind-a npr. "MobileMenu"
+			this.siteHeader.toggleClass("site-header--is-expanded");
+			this.menuIcon.toggleClass("site-header__menu-icon--close-x"); //pojavi se x ko kliknemo na tri crtice
+		}
+	}]);
+
+	return MobileMenu;
+}();
+
+exports.default = MobileMenu;
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _jquery = __webpack_require__(0);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+var _noframework = __webpack_require__(1);
+
+var _noframework2 = _interopRequireDefault(_noframework);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var RevealOnScroll = function () {
+	function RevealOnScroll(elementi, offset) {
+		_classCallCheck(this, RevealOnScroll);
+
+		this.itemsToReveal = (0, _jquery2.default)(elementi); //vrstni red je pomemben
+		this.offsetPercentage = offset; //si izmislimo incoming offset parameter
+		this.hideInitially();
+		this.createWaypoints();
+	}
+
+	_createClass(RevealOnScroll, [{
+		key: "hideInitially",
+		value: function hideInitially() {
+			this.itemsToReveal.addClass("reveal-item");
+		}
+	}, {
+		key: "createWaypoints",
+		value: function createWaypoints() {
+			var that = this; //this kaže na objekt k ga hočemo
+			this.itemsToReveal.each(function () {
+				//vse kaj dodamo v each se bo za vsak element zagnalo
+				var currentItem = this; //this kaže na objekt, ki ga hočemo razkrit, ker bo spodaj prevzel new Waypoint na katerega bo kazal this, shranimo tukaj v spremenljivko
+				new Waypoint({ //do waypoint razreda imamo dostop ker smo dodali waypoint datoteko, potrebuje dve spremenljivki
+					element: currentItem, //dom el. ki ga opazujemo dokler skrolamo dol (el. ki se bo recimo odkril)
+					handler: function handler() {
+						//kaj se zgodi ko priskolamo do opazovanega elementa
+						(0, _jquery2.default)(currentItem).addClass("reveal-item--is-visible"); // ko priskolamo do elementa, mu dodamo razred da bo spet viden
+					}, //ko skrolamo do sem
+					offset: that.offsetPercentage //0 je vrh našega vidnega zaslona 100% pa spodnji del
+				});
+			});
+		}
+	}]);
+
+	return RevealOnScroll;
+}();
+
+exports.default = RevealOnScroll;
 
 /***/ })
 /******/ ]);
