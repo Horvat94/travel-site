@@ -1,0 +1,1 @@
+import 'lazysizes';//dodamo paketek

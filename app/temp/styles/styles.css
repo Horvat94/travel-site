@@ -664,11 +664,10 @@ a{/*privzeto so vse povezave oranžne*/
 	}
 
 @media (min-width: 1010px){
-
-.page-section--testimonials{
-				background: url("/assets/images/testimonials-bg.jpg") top center no-repeat;/* aligned top in horizontalno poravnana center ne sme se ponavljati, samo enkrat se naj prikaže*/
-				background-size: cover/*pokrije celoten div*/
-	}
+				.page-section--testimonials.lazyloaded{
+					background: url("/assets/images/testimonials-bg.jpg") top center no-repeat;/* aligned top in horizontalno poravnana center ne sme se ponavljati, samo enkrat se naj prikaže*/
+					background-size: cover;/*pokrije celoten div*/
+				}
 	}
 
 .page-section--no-b-padding-until-medium{
