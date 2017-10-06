@@ -11109,9 +11109,13 @@ var _jquery = __webpack_require__(0);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
+var _Modal = __webpack_require__(7);
+
+var _Modal2 = _interopRequireDefault(_Modal);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-///MobileMen je dejansko poljubno ime tukaj smo organizirani 
+var mobileMenu = new _MobileMenu2.default(); ///MobileMen je dejansko poljubno ime tukaj smo organizirani 
 /*function oseba(oIme, oBarva, oStatus){
 	console.log("Zdravo, moje ime je "+oIme+". Moja najljubša barva je "+oBarva+". Trenutno sem "+oStatus+".");
 }
@@ -11157,11 +11161,12 @@ jane.payTaxes();
 */
 
 /** Koda za spletno stran **/
-var mobileMenu = new _MobileMenu2.default();
+
 var stickyHeader = new _StickyHeader2.default();
 //var revealOnScroll = new RevealOnScroll();
 new _RevealOnScroll2.default((0, _jquery2.default)(".feature-item"), "85%"); //features
 new _RevealOnScroll2.default((0, _jquery2.default)(".testimonial"), "60%"); //testimonials npr. podamo argumente katere razrede bomo razkrili in kaksen offset bomo uporabili
+var modal = new _Modal2.default();
 
 /***/ }),
 /* 3 */
@@ -11761,6 +11766,73 @@ var RevealOnScroll = function () {
 }();
 
 exports.default = RevealOnScroll;
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _jquery = __webpack_require__(0);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Modal = function () {
+	function Modal() {
+		_classCallCheck(this, Modal);
+
+		this.openModalButton = (0, _jquery2.default)(".open-modal");
+		this.modal = (0, _jquery2.default)(".modal");
+		this.closeModalButton = (0, _jquery2.default)(".modal__close");
+		this.events();
+	}
+
+	_createClass(Modal, [{
+		key: "events",
+		value: function events() {
+			//clicking the open modal
+			this.openModalButton.click(this.openModal.bind(this));
+			//clickign the x modalbutton
+			this.closeModalButton.click(this.closeModal.bind(this));
+			//pushed any key
+			(0, _jquery2.default)(document).keyup(this.keyPressHandler.bind(this));
+		}
+	}, {
+		key: "keyPressHandler",
+		value: function keyPressHandler(e) {
+			if (e.keyCode == 27) {
+				//vsaka tpka na tipkovnici ima vrednost številko
+				this.closeModal();
+			}
+		}
+	}, {
+		key: "openModal",
+		value: function openModal() {
+			this.modal.addClass("modal--is-visible");
+			return false; // ker je <a> element in ob vsakem kliku na takšen element se bo stran povrnila na vrh z return false preprečimo privzeto obnašanje
+		}
+	}, {
+		key: "closeModal",
+		value: function closeModal() {
+			this.modal.removeClass("modal--is-visible");
+		}
+	}]);
+
+	return Modal;
+}();
+
+exports.default = Modal;
 
 /***/ })
 /******/ ]);

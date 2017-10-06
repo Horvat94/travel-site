@@ -48,8 +48,10 @@ import StickyHeader from "./modules/StickyHeader";
 import MobileMenu from "./modules/MobileMenu";///MobileMen je dejansko poljubno ime tukaj smo organizirani 
 import RevealOnScroll from "./modules/RevealOnScroll";
 import $ from "jquery";
+import Modal from "./modules/Modal"
 var mobileMenu = new MobileMenu();
 var stickyHeader = new StickyHeader();
 //var revealOnScroll = new RevealOnScroll();
 new RevealOnScroll($(".feature-item"),"85%");//features
 new RevealOnScroll($(".testimonial"),"60%");//testimonials npr. podamo argumente katere razrede bomo razkrili in kaksen offset bomo uporabili
+var modal = new Modal();

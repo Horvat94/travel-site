@@ -1,0 +1,24 @@
+.social-icons{
+	text-align: center;/**/
+	&__icon{
+		background-color: $mainOrange;
+			display: inline-block;/*tako bodo vse ikone v eni liniji in custom blok bo nam dal višino, če jo potrebujemo*/
+			margin: 0 5px 5px 5px;
+			width: 33%;
+
+			height: 72px;
+			position: relative;
+			@mixin atSmall{
+				width: 72px;
+				margin: 0 5px;
+			}
+
+		.icon{
+			display: block;/*tako lahko nastavitve, ki jih mamo avtomatsko narejene se lahko uporabijo*/
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);/*potegne ga nazaj gor polovico svoje velikosti in širine*/
+		}
+	}
+}

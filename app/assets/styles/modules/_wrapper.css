@@ -10,6 +10,10 @@
 		max-width: 976px;/*max sirina slike*/
 	}
 
+	&--narrow{
+		max-width: 470px;
+	}
+	
 	.wrapper{/*ko je wrpper gnezden v wrapper ne bo imel dodatnega padinga*/
 		padding-left: 0;
 		padding-right: 0;
