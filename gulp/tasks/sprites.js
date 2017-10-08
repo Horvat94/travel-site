@@ -2,11 +2,24 @@
 var gulp = require("gulp"),
 	svgSprite = require("gulp-svg-sprite"),
 	rename = require("gulp-rename"),
-	del = require("del");
+	del = require("del"),
+	svg2png = require("gulp-svg2png");
 
 var config ={//ustvarili smo objekt nakazuje ga zaviti oklepaji.. v tem objektu bo združil naše slike
+	shape: {
+		spacing: {
+			padding: 1//popravimo da iocone niso preveč stisnjene
+		}
+	},
 	mode: {// kakšen način oz. mode naj uporablja
 		css: {//ima mode z imenom css
+				variables: {
+					replaceSvgWithPng: function(){//poljubno poimenujemo funkcijo
+						return function(sprite,render){
+							return render(sprite).split(".svg").join(".png");//split razdeli sprite v string in odreže .svg ter doda .png
+						}
+					} 
+				},
 				sprite: "sprite.svg",//izbriše .css iz sprite datoteke, ki jo drugače naredi z random charset
 				render:{//povemu mu da mora zrendat css
 					css:{//povemu mu da hočemo uporabljati css namesto sas,..itd
@@ -28,8 +41,15 @@ gulp.task("createSprite",["beginClean"], function(){
 			.pipe(gulp.dest("./app/temp/sprite/"));//dest kopira datoteke izbrane z source v temp/sprite mapo
 });
 
-gulp.task("copySpriteGraphic",["createSprite"], function(){
-	return gulp.src("./app/temp/sprite/css/**/*.svg")//zagrabi datoteko z .svg končnico
+//ustvarjanje kopije .svg v .png za druge brskalnike
+gulp.task("createPngCopy", ["createSprite"], function(){
+	return gulp.src("./app/temp/sprite/css/*.svg")
+	.pipe(svg2png())
+	.pipe(gulp.dest("./app/temp/sprite/css"));
+});
+
+gulp.task("copySpriteGraphic",["createPngCopy"], function(){
+	return gulp.src("./app/temp/sprite/css/**/*.{svg,png}")//zagrabi datoteko z .svg končnico
 	.pipe(gulp.dest("./app/assets/images/sprites"));//kopira v datoteko navedeno na tej poti... glej tudi v templates/sprite pot za background-image!!
 });
 
@@ -44,4 +64,4 @@ gulp.task("endClean",function(){
 });
 
 //gulp.task("icons",["createSprite,copySpriteCSS"]); - tako se oba taska izvedeta istočasno, kar pomeni da nebo prav delovalo zato moramo v createSpriteCSS vstavit nov parameter dependenciea, ki bo omogočil, da se bo izvedel do konca
-gulp.task("icons",["beginClean","createSprite","copySpriteGraphic","copySpriteCSS","endClean"]);
+gulp.task("icons",["beginClean","createSprite","createPngCopy","copySpriteGraphic","copySpriteCSS","endClean"]);

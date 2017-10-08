@@ -17,7 +17,7 @@ class StickyHeader{
 	}
 	refreshWaypoints(){
 		this.lazyImages.on("load",function(){
-			Waypoint.refreshAll();
+			Waypoint.refreshAll();//refresha čisto vse waypointse v brskalniku
 		});
 	}
 

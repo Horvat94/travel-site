@@ -11216,7 +11216,7 @@ var StickyHeader = function () {
 		key: "refreshWaypoints",
 		value: function refreshWaypoints() {
 			this.lazyImages.on("load", function () {
-				Waypoint.refreshAll();
+				Waypoint.refreshAll(); //refresha čisto vse waypointse v brskalniku
 			});
 		}
 	}, {
