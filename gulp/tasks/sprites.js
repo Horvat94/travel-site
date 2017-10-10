@@ -59,7 +59,7 @@ gulp.task("copySpriteCSS",["createSprite"], function(){//dependencies da naredi 
 	.pipe(gulp.dest("./app/assets/styles/modules"));
 });
 
-gulp.task("endClean",function(){
+gulp.task("endClean", ['copySpriteGraphic', 'copySpriteCSS'],function(){
 	return del("./app/temp/sprite");
 });
 

@@ -665,7 +665,7 @@ a{/*privzeto so vse povezave oranžne*/
 
 @media (min-width: 1010px){
 				.page-section--testimonials.lazyloaded{
-					background: url("/assets/images/testimonials-bg.jpg") top center no-repeat;/* aligned top in horizontalno poravnana center ne sme se ponavljati, samo enkrat se naj prikaže*/
+					background: url("../../assets/images/testimonials-bg.jpg") top center no-repeat;/* aligned top in horizontalno poravnana center ne sme se ponavljati, samo enkrat se naj prikaže*/
 					background-size: cover;/*pokrije celoten div*/
 				}
 	}
@@ -1072,11 +1072,11 @@ a{/*privzeto so vse povezave oranžne*/
 /*to omogoča, da se bo izvedel samo enkrat !!sprite spremenljivka se lahko dostopa samo v shapes*/
 
 .icon{
-			background-image: url("/assets/images/sprites/sprite-e79e95cc.svg");
+			background-image: url("../../assets/images/sprites/sprite-e79e95cc.svg");
 		}
 
 .no-svg .icon{
-			background-image: url("/assets/images/sprites/sprite-e79e95cc.png");
+			background-image: url("../../assets/images/sprites/sprite-e79e95cc.png");
 		}
 
 .icon--clear-view-escapes{

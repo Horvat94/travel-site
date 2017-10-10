@@ -15,7 +15,7 @@
 
 			@mixin atLarge{
 				&.lazyloaded{
-					background: url("/assets/images/testimonials-bg.jpg") top center no-repeat;/* aligned top in horizontalno poravnana center ne sme se ponavljati, samo enkrat se naj prikaže*/
+					background: url("../../assets/images/testimonials-bg.jpg") top center no-repeat;/* aligned top in horizontalno poravnana center ne sme se ponavljati, samo enkrat se naj prikaže*/
 					background-size: cover;/*pokrije celoten div*/
 				}
 			}

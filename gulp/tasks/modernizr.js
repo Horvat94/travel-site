@@ -9,4 +9,5 @@ gulp.task("modernizr",function(){
 		]
 	}))//avtomatsko zazana za katere feature moramo testirati in ustvari js datoteko
 	.pipe(gulp.dest("./app/temp/scripts/"));//pipamo na cilj
-})
+});
+
